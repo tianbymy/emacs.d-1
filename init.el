@@ -71,6 +71,7 @@
 (require 'init-rails)
 (require 'init-sql)
 
+(require 'init-slim)
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
