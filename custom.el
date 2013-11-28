@@ -16,3 +16,13 @@
 (frame-parameter nil 'font)
 'han
 (font-spec :family "Hiragino Sans GB" ))
+;;格式化整个文件函数
+(defun indent-whole ()
+  (interactive)
+  (indent-region (point-min) (point-max))
+  (message "format successfully"))
+;;绑定到F7键
+(global-set-key [f7] 'indent-whole)
+(add-to-list 'load-path "~/.emacs.d/custom/")
+(require 'slim-mode)
+(setq default-directory "~/work" )
