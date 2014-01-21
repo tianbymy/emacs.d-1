@@ -26,3 +26,24 @@
 (add-to-list 'load-path "~/.emacs.d/custom/")
 (require 'slim-mode)
 (setq default-directory "~/work" )
+
+;; Use HTML mode for php files
+(add-to-list 'auto-mode-alist '("\\.php$" . html-mode))
+
+;; Load MMM
+(require 'mmm-mode)
+(setq mmm-global-mode 'maybe)
+(setq mmm-submode-decoration-level 2)
+(set-face-background 'mmm-code-submode-face "gray15")
+(mmm-add-classes
+  '((php-in-html
+      :submode php-mode
+      :face mmm-code-submode-face
+      :front "<\\?\\(php=?\\)?"
+      :back "\\?>"
+      :include-front t
+      :include-back t)))
+
+(mmm-add-mode-ext-class 'html-mode "\\.php$" 'php-in-html)
+
+
